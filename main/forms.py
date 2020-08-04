@@ -5,7 +5,7 @@ class JssForm(forms.ModelForm):
 
     class Meta:
         model = Jasoseol
-        fields = ('title', 'content',)
+        fields = ('title', 'content')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
