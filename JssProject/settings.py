@@ -123,7 +123,8 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-
+# 로그인 후에 redirect될 url
 LOGIN_REDIRECT_URL = '/'
 
+# 로그아웃 후에 redirect될 url
 LOGOUT_REDIRECT_URL = '/'
