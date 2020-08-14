@@ -12,10 +12,10 @@ def index(request):
     return render(request, 'index.html', {'all_jss' : all_jss})
 
 def my_index(request):
-    my_jss = Jasoseol.objects.filter(author=request.user)
+    my_jss = Jasoseol.objects.filter(author=request.user) # author가 로그인된 사용자와 같은 자소서들만 filtering
     return render(request, 'index.html', {'all_jss' : my_jss})
 
-@login_required(login_url='/login/')
+@login_required(login_url='/login/') # django의 decorators
 def create(request):
     # if not request.user.is_authenticated:
     #     return redirect('login')
@@ -46,7 +46,7 @@ def delete(request, jss_id):
         my_jss.delete()
         return redirect('index')
     
-    raise PermissionDenied
+    raise PermissionDenied # 권한없음 오류
 
 def update(request, jss_id):
     my_jss = Jasoseol.objects.get(pk=jss_id)
