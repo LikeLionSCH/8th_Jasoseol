@@ -37,7 +37,7 @@ def detail(request, jss_id):
     # except:
     #     raise Http404
     my_jss = get_object_or_404(Jasoseol, pk=jss_id)
-    comment_form = CommentForm()
+    comment_form = CommentForm() # 댓글 모델폼
     return render(request, 'detail.html', {'my_jss':my_jss, 'comment_form':comment_form})
 
 def delete(request, jss_id):

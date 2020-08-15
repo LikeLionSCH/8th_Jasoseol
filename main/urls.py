@@ -11,5 +11,5 @@ urlpatterns = [
 
     # comment #
     path('create_comment/<int:jss_id>', create_comment, name="create_comment"),
-    path('cdelete_comment/<int:jss_id>/<int:comment_id>/', delete_comment, name="delete_comment"),
+    path('delete_comment/<int:jss_id>/<int:comment_id>/', delete_comment, name="delete_comment"),
 ]
