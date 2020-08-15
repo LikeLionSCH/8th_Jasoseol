@@ -20,6 +20,7 @@ class JssForm(forms.ModelForm): # forms의 ModelForm을 상속받음
         })
 
         # name='content' 로 된 tag의 속성으로 class='jss_content_form' 지정
+        # 실시간 글자수 세기 기능을 추가하기 위해 textarea 태그에 class를 추가
         self.fields['content'].widget.attrs.update({
             'class': 'jss_content_form',
         })
