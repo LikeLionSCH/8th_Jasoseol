@@ -61,6 +61,22 @@
         </div>
     </a>
     {% endfor %}
+
+    <br>
+
+    {% if all_jss.has_previous %}
+    <a href="?page=1">First</a>
+    <a href="?page={{all_jss.previous_page_number}}">Previous</a>
+    {% endif %}
+
+    <span>{{ all_jss.number }}</span>
+    <span>of</span>
+    <span>{{ all_jss.paginator.num_pages }}</span>
+
+    {% if all_jss.has_next %}
+    <a href="?page={{all_jss.next_page_number}}">Next</a>
+    <a href="?page={{all_jss.paginator.num_pages}}">Last</a>
+    {% endif %}
 </body>
 
 </html>

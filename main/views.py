@@ -3,13 +3,17 @@ from .forms import JssForm, CommentForm
 from .models import Jasoseol, Comment
 from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 # from django.http import Http404
 
 # Create your views here.
 
 def index(request):
     all_jss = Jasoseol.objects.all()
-    return render(request, 'index.html', {'all_jss' : all_jss})
+    paginator = Paginator(all_jss, 5)
+    page = request.GET.get('page')
+    jss_page = paginator.get_page(page)
+    return render(request, 'index.html', {'all_jss' : jss_page})
 
 def my_index(request):
     my_jss = Jasoseol.objects.filter(author=request.user) # author가 로그인된 사용자와 같은 자소서들만 filtering
