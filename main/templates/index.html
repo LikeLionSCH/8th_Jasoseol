@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -42,6 +44,10 @@
 
     <a href="{% url 'login' %}">
         <button>로그인</button>
+    </a>
+
+    <a href="{% provider_login_url 'google' %}">
+        <button>구글로 로그인</button>
     </a>
 
     {% endif %}
